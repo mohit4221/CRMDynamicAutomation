@@ -1,28 +1,28 @@
 ﻿using CRMDynamicTestFramework;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using System;
-
 
 namespace CRMDynamicTestCommon
 {
     public class CRMDynamicBaseTest
     {
-        private CRMDynamicWebApp _dynamicWebApp;
-        private AppType _currentEnvironment;
+        private CRMDynamicWebApp dynamicWebApp;
+        private AppType currentAppType;
 
         public CRMDynamicWebApp CRMDynamicWebApp
         {
-            get { return this._dynamicWebApp; }
+            get { return this.dynamicWebApp; }
         }
 
         public CRMDynamicBaseTest()
         {
-            _currentEnvironment = AppType.Web;
+            currentAppType = AppType.Web;
         }
 
         public CRMDynamicBaseTest(AppType environment)
         {
-            _currentEnvironment = environment;
+            currentAppType = environment;
         }
 
         [TestInitialize]
@@ -30,8 +30,16 @@ namespace CRMDynamicTestCommon
         {
             try
             {
-                _dynamicWebApp = new CRMDynamicWebApp();
-                _dynamicWebApp.StartApplication("https://www.google.com", _currentEnvironment);
+                dynamicWebApp = new CRMDynamicWebApp();
+                dynamicWebApp.StartApplication("https://msretailstore-testing.crm.dynamics.com/main.aspx", currentAppType);
+                dynamicWebApp.FindElementById(Constant.MicrosoftEmailText).EnterText("v-sinmo@microsoft.com");
+                dynamicWebApp.FindElementById(Constant.MicrosoftNextButton).Clicks();
+                //WaitHelper.WaitForPageReady(
+                //d =>
+                //{
+                //    var result = dynamicWebApp.ExecuteScript("return document.readyState");
+                //    return result != null && result.Equals("complete");
+                //}, ApplicationConfig.SleepIntervalWaitTime);
             }
             catch(Exception ex)
             {
@@ -42,8 +50,10 @@ namespace CRMDynamicTestCommon
         [TestCleanup]
         public void TestCleanup()
         {
-            _dynamicWebApp.CloseBrowserDriver();
+            dynamicWebApp.CloseBrowserDriver();
         }
+
+
 
     }
 }
