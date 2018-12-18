@@ -32,7 +32,6 @@ namespace CRMDynamicTestFramework
             wait.Until(ExpectedConditions.ElementToBeClickable(searchBy));
 
             //Wait for clickable not working for classname, added sleep for that. 
-            //Bug 8087 : Selenium ExpectedConditions.ElementToBeClickable is not working for ClassName
             if (byClassName)
                 Thread.Sleep(5000);
         }
