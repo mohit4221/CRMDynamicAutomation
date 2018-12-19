@@ -1,4 +1,5 @@
-﻿using CRMDynamicTestFramework.WebDriver;
+﻿using System;
+using CRMDynamicTestFramework.WebDriver;
 using OpenQA.Selenium;
 using System.Text.RegularExpressions;
 
@@ -7,18 +8,18 @@ namespace CRMDynamicTestFramework
     public class CRMDynamicWebApp
     {
         private DriverExtension driverExtension;
-        private AppType _currentEnvironment;
-        private string _mainWindowHandler;
+        private AppType currentEnvironment;
+        private string mainWindowHandler;
 
 
         public string MainWindowHandler
         {
-            get { return this._mainWindowHandler; }
+            get { return this.mainWindowHandler; }
         }
 
         public AppType CurrentRunningEnvironment
         {
-            get { return this._currentEnvironment; }
+            get { return this.currentEnvironment; }
         }
 
         public CRMDynamicWebApp()
@@ -29,40 +30,28 @@ namespace CRMDynamicTestFramework
         public void StartApplication(string url, AppType environment)
         {
             this.driverExtension = new ChromeDriverExtension(url);
+            this.driverExtension.CurrentRunningEnvironment = environment;
+            this.mainWindowHandler = this.driverExtension.CurrentWindowHandle;
         }
 
-        public IWebElement FindElementByClassName(string className, bool isClickable = false)
+        public string ExecuteScript(string script)
         {
-            return this.driverExtension.FindElementByClassName(className, isClickable);
-        }
-        public string GetValueFromEmail(string reg, string content)
-        {
-            Regex regex = new Regex(reg);
-            Match match = regex.Match(content);
-            if (match.Success)
-            {
-                return match.Value;
-            }
-            return null;
-        }
-        public IWebElement FindElementById(string Id, bool isClickable = false)
-        {
-            return this.driverExtension.FindElementById(Id, isClickable);
+            return this.driverExtension.ExecuteScript(script);
         }
 
-        public IWebElement FindElementByXpath(string xpath, bool isClickable = false)
+        public IWebElement FindElementByClassName(string classNameToFind, bool isClickable = false)
         {
-            return this.driverExtension.FindElementByXpath(xpath, isClickable);
+            return this.driverExtension.Search(By.ClassName(classNameToFind));
+        }
+        
+        public IWebElement FindElementById(string idToFind, bool isClickable = false)
+        {
+            return this.driverExtension.Search(By.Id(idToFind));
         }
 
-        public void TakeScreenShot(string imageName)
+        public IWebElement FindElementByXpath(string xpathToFind, bool isClickable = false)
         {
-            this.driverExtension.TakeScreenShot(imageName);
-        }
-
-        public void WaitForClickable(By by)
-        {
-            this.driverExtension.WaitForClickable(by);
+            return this.driverExtension.Search(By.XPath(xpathToFind));
         }
 
         public void CloseBrowserDriver()

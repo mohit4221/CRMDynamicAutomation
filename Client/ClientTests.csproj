@@ -58,14 +58,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BVT\Sample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BVTTest\ClientBVT.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages\Chromium.ChromeDriver.2.21\content\chromedriver.exe" />
+    <None Include="app.config" />
     <None Include="test.runsettings" />
   </ItemGroup>
   <ItemGroup>

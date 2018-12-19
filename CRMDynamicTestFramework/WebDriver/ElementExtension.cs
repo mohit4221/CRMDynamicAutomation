@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using System.Threading;
+using OpenQA.Selenium;
 
 namespace CRMDynamicTestFramework
 {
@@ -22,6 +24,29 @@ namespace CRMDynamicTestFramework
             return element.FindElement(By.ClassName(elementCssClassName)).GetAttribute("id");
         }
 
-      
+        public static string GetElementText(this IWebElement element, string elementClassName)
+        {
+            return element.FindElement(By.ClassName(elementClassName)).Text;
+        }
+
+        public static bool ExecuteWithRetry(this Func<bool> f, int retryInterval = 500, int maxAttempts = 10)
+        {
+            var done = false;
+            for (var attempts = 1; !done && attempts <= maxAttempts; attempts++)
+            {
+                done = f();
+
+                if (!done)
+                {
+                    if (attempts < maxAttempts)
+                    {
+                        Thread.Sleep(retryInterval);
+                    }
+                }
+            }
+
+            return done;
+        }
+
     }
 }
