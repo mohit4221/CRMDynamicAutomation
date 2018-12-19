@@ -1,0 +1,14 @@
+D:\POC\CRMDynamic\CRMDynamicAutomation\CRMDynamicTestCommon\obj\Debug\CRMDynamicTestCommon.csprojAssemblyReference.cache
+D:\POC\CRMDynamic\CRMDynamicAutomation\CRMDynamicTestCommon\obj\Debug\CRMDynamicTestCommon.csproj.CoreCompileInputs.cache
+D:\POC\CRMDynamic\CRMDynamicAutomation\CRMDynamicTestCommon\bin\Debug\CRMDynamicTestCommon.dll
+D:\POC\CRMDynamic\CRMDynamicAutomation\CRMDynamicTestCommon\bin\Debug\CRMDynamicTestCommon.pdb
+D:\POC\CRMDynamic\CRMDynamicAutomation\CRMDynamicTestCommon\bin\Debug\CRMDynamicTestFramework.dll
+D:\POC\CRMDynamic\CRMDynamicAutomation\CRMDynamicTestCommon\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\POC\CRMDynamic\CRMDynamicAutomation\CRMDynamicTestCommon\bin\Debug\WebDriver.dll
+D:\POC\CRMDynamic\CRMDynamicAutomation\CRMDynamicTestCommon\bin\Debug\WebDriver.Support.dll
+D:\POC\CRMDynamic\CRMDynamicAutomation\CRMDynamicTestCommon\bin\Debug\CRMDynamicTestFramework.pdb
+D:\POC\CRMDynamic\CRMDynamicAutomation\CRMDynamicTestCommon\bin\Debug\WebDriver.xml
+D:\POC\CRMDynamic\CRMDynamicAutomation\CRMDynamicTestCommon\bin\Debug\WebDriver.Support.xml
+D:\POC\CRMDynamic\CRMDynamicAutomation\CRMDynamicTestCommon\obj\Debug\CRMDynamicTestCommon.csproj.CopyComplete
+D:\POC\CRMDynamic\CRMDynamicAutomation\CRMDynamicTestCommon\obj\Debug\CRMDynamicTestCommon.dll
+D:\POC\CRMDynamic\CRMDynamicAutomation\CRMDynamicTestCommon\obj\Debug\CRMDynamicTestCommon.pdb
